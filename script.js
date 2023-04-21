@@ -1,15 +1,6 @@
 
 
 let level1 = [
-    [1, 1, 1, 0, 1, 0],
-    [1, 0, 1, 1, 1, 1],
-    [0, 0, 1, 0, 0, 0],
-    [1, 0, 1, 1, 1, 1],
-    [1, 0, 1, 0, 1, 0],
-    [1, 1, 1, 0, 1, 1]
-]
-
-let level2 = [
     [1, 0, 0, 1, 1, 1, 0, 0, 0, 0],
     [1, 0, 0, 1, 0, 1, 1, 1, 1, 1],
     [1, 1, 1, 1, 0, 0, 0, 0, 0, 1],
@@ -19,14 +10,28 @@ let level2 = [
     [1, 1, 1, 0, 1, 0, 1, 1, 0, 1],
     [1, 0, 0, 0, 1, 0, 0, 1, 0, 1],
     [1, 0, 1, 1, 1, 0, 1, 1, 1, 1],
-    [1, 1, 1, 0, 0, 0, 1, 0, 0, 1]
+    [1, 1, 1, 0, 0, 0, 1, 0, 0, 1],
+]
+
+let level2 = [
+    [1, 1, 2, 0, 1, 1, 1, 0, 0, 1, 0, 0],
+    [0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1],
+    [1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0],
+    [1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 0],
+    [1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1],
+    [1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0],
+    [0, 1, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1],
+    [0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0],
+    [1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 0],
+    [0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0],
+    [0, 0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 1],
 ]
 let level3 = [
-//    [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
-//    [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
-//    [0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
+   [1, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+   [0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1],
+   [0, 1, 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0],
    [1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0],
-   [1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
+   [1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1],
    [1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 0, 0, 1, 1, 0, 0, 0, 0],
    [1, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
    [0, 1, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0],
@@ -34,12 +39,12 @@ let level3 = [
    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
    [0, 1, 1, 0, 0, 0, 1, 0, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0],
    [0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 1, 1, 0, 1, 0, 0],
-   [0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0],
+   [0, 1, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 1],
    [0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0],
    [0, 0, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0],
-   [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1],
-   [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0, 0],
-   [0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 0],
+   [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1],
+   [0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1],
+   [0, 1, 1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1],
    [0, 1, 0, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 0, 0],
    [1, 1, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0],
    [0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, 1],
@@ -61,8 +66,8 @@ Level.addEventListener("change", function () {
         mazearray = level3;
     }
     maze.innerHTML =
-        `<img src="guy2.gif" id ="guy" width="50px" height="50px" alt="guy" >
-    <img src="door.png" alt="door" width="50px" height="50px" id="door">`
+        `<img src="guy2.gif" id ="guy" width="30px" height="30px" alt="guy" >
+    <img src="door.png" alt="door" width="30px" height="30px" id="door">`
     createMaze();
 })
 
@@ -139,8 +144,8 @@ document.addEventListener("keydown", function (e) {
 
 
     
-    if (e.key == "ArrowRight" && guyleft < (mazearray.length - 1) * 50 && mazearray[guyposition[0]][guyposition[1] + 1] == 1) {
-        guyleft += 50;
+    if (e.key == "ArrowRight" && guyleft < (mazearray.length - 1) * 30 && mazearray[guyposition[0]][guyposition[1] + 1] == 1) {
+        guyleft += 30;
         guy.style.left = guyleft + "px";
         mazearray[guyposition[0]][guyposition[1]] = 1;
         mazearray[guyposition[0]][guyposition[1] + 1] = 2;
@@ -148,22 +153,22 @@ document.addEventListener("keydown", function (e) {
 
 
     if (e.key == "ArrowLeft" && guyleft > 0 && mazearray[guyposition[0]][guyposition[1] - 1] == 1) {
-        guyleft -= 50;
+        guyleft -= 30;
         guy.style.left = guyleft + "px";
         mazearray[guyposition[0]][guyposition[1]] = 1;
         mazearray[guyposition[0]][guyposition[1] - 1] = 2;
     }
 
     if (e.key == "ArrowUp" && guytop > 0 && mazearray[guyposition[0] - 1][guyposition[1]] == 1) {
-        guytop -= 50;
+        guytop -= 30;
         guy.style.top = guytop + "px";
         mazearray[guyposition[0]][guyposition[1]] = 1;
         mazearray[guyposition[0] - 1][guyposition[1]] = 2;
     }
 
 
-    if (e.key == "ArrowDown" && guytop < (mazearray.length - 1) * 50 && mazearray[guyposition[0] + 1][guyposition[1]] == 1) {
-        guytop += 50;
+    if (e.key == "ArrowDown" && guytop < (mazearray.length - 1) * 30 && mazearray[guyposition[0] + 1][guyposition[1]] == 1) {
+        guytop += 30;
         guy.style.top = guytop + "px";
         mazearray[guyposition[0]][guyposition[1]] = 1;
         mazearray[guyposition[0] + 1][guyposition[1]] = 2;
