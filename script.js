@@ -172,3 +172,37 @@ document.addEventListener("keydown", function (e) {
         alert("You Won");
     }
 })
+
+
+
+
+const startingMinutes = 0.30;
+let time = startingMinutes * 100;
+var counter = 0;
+var timeleft = 0.30;
+
+
+const countdownEl = document.getElementById('countdown');
+setInterval(updateCountdown, 1000);
+
+function updateCountdown(){
+    const minutes = Math.floor(time/60);
+    let seconds = time % 60;
+
+
+
+
+    countdownEl.innerHTML = `${minutes}: ${seconds}`;
+    time--;
+}
+
+ 
+
+function stopCountdown(){
+     if(timeleft<0){
+      minutes = 0;
+      seconds = 0;
+     }
+}
+
+

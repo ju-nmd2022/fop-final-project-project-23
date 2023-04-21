@@ -68,3 +68,15 @@ select {
     font-family: 'Courier New', Courier, monospace;
     padding: 10px 20px;
 }
+
+
+p {
+    background-color: antiquewhite;
+    display: inline-flex;
+    font-size: 20px;
+    height: 50px;
+    justify-content: center;
+    width: 100px;
+    margin: 0;
+    align-items: center;
+}
