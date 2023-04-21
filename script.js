@@ -1,3 +1,5 @@
+
+
 let level1 = [
     [1, 1, 1, 0, 1, 0],
     [1, 0, 1, 1, 1, 1],
@@ -178,7 +180,7 @@ document.addEventListener("keydown", function (e) {
 
 const startingMinutes = 0.30;
 let time = startingMinutes * 100;
-var counter = 0;
+
 var timeleft = 0.30;
 
 
@@ -200,9 +202,18 @@ function updateCountdown(){
 
 function stopCountdown(){
      if(timeleft<0){
-      minutes = 0;
-      seconds = 0;
+        const minutes = Math.floor(time/60);
+        let seconds = time % 60;
+    
      }
 }
 
 
+
+function startGame(){
+    let startDiv = document.getElementById("start");
+    let gameCanvas = document.getElementById("canvas");
+    startDiv.style.display = "none";
+    gameCanvas.style.display = "block";
+  
+}
