@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image: url("bg.png");
+    background-image: url("background.jpg");
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -52,7 +52,7 @@ h1 {
 }
 
 #maze-container {
-    border: 10px solid black;
+    border: 10px solid navy;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -72,7 +72,7 @@ h1 {
 }
 
 .wall {
-    background-color: black;
+    background-color: navy;
     
 }
 
