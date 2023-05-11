@@ -1,3 +1,23 @@
+function startGame(){
+    let startDiv = document.getElementById("start");
+    let gameCanvas = document.getElementById("canvas");
+    let gameOver = document.getElementById("game-over");
+    startDiv.style.display = "none";
+    gameCanvas.style.display = "block";
+    gameOver.style.display = "none";
+   
+
+}
+
+function gameOver(){
+    let startDiv = document.getElementById("start");
+    let gameCanvas = document.getElementById("canvas");
+    let gameOver = document.getElementById("game-over");
+    startDiv.style.display = "none";
+    gameCanvas.style.display = "none";
+    gameOver.style.display = "block";
+}
+
 
 
 let level1 = [
@@ -206,19 +226,17 @@ function updateCountdown(){
  
 
 function stopCountdown(){
-     if(timeleft<0){
+     if(timeleft<00){
+        const startingMinutes = 0.30;
+        let time = startingMinutes * 100;
+        
+        var timeleft = 0.30;
+    }else{
         const minutes = Math.floor(time/60);
         let seconds = time % 60;
-    
-     }
+    }
 }
 
 
 
-function startGame(){
-    let startDiv = document.getElementById("start");
-    let gameCanvas = document.getElementById("canvas");
-    startDiv.style.display = "none";
-    gameCanvas.style.display = "block";
-  
-}
+
