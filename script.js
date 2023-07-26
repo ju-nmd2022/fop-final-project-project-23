@@ -2,7 +2,7 @@ let hotAirBalloon;
 
 
 function preload(){
-    hotAirBalloon = createImg('air-balloon-png-transparent-background-9.png');
+    hotAirBalloon = loadImage('air-balloon-png-transparent-background-9');
 }
 
 function setup(){
@@ -11,7 +11,7 @@ function setup(){
 
 function draw(){
 background(230);
-hotAirBalloon.position(100, 100);
+
 }
 
 
