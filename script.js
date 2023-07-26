@@ -1,17 +1,17 @@
-let hotAirBalloon;
+let balloon;
 
 
 function preload(){
-    hotAirBalloon = loadImage('air-balloon-png-transparent-background-9');
+    balloon = loadImage("balloon.png");
 }
 
 function setup(){
-    createCanvas(400, 400);
+    createCanvas(800, 800);
 }
 
 function draw(){
 background(230);
-
+image(balloon, 0, 250, 100, 100);
 }
 
 
