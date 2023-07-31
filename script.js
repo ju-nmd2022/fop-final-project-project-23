@@ -17,6 +17,7 @@ function preload(){
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
+    grass = loadImage("grass.png");
 }
 
 function setup(){
@@ -39,24 +40,25 @@ image(cloud, posY+ posX + 200, 50, 300, 150);
 image(cloud, posY+400, posX + 0, 350, 170);
 image(cloud, posY+600, posX + 70, 350, 170);
 image(cloud, posY+100, posX + 100, 250, 190);
+image(grass, posY, posY+650, 850, 100);
 
 
 if(isLeft){
-    if(balloonX > width * 0.5){
-        balloonX-=10;
+    if(balloonX > width * 0.01){
+        balloonX-=5;
     }
     else{
-        scroll +=10;
+        scroll +=5;
     }
 
 }
 
 if(isRight){
-    if(balloonX < width * 0.8){
-        balloonX+=10;
+    if(balloonX < width * 1){
+        balloonX+=5;
     }
     else{
-        scroll -=10;
+        scroll -=5;
     }
 
 }
