@@ -1,8 +1,13 @@
-let game_running=false;
+
 let balloon;
 let cloud;
 let posX=0;
 let posY=0;
+let scroll;
+let balloonY = 300;
+let balloonX =0;
+let isLeft;
+let isRight;
 
 
 function preload(){
@@ -10,69 +15,79 @@ function preload(){
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
+    cloud = loadImage("cloud.png");
+    cloud = loadImage("cloud.png");
 }
 
 function setup(){
     createCanvas(800, 800);
+    scroll=0;
+
+    isRight= false;
+    isLeft= false;
 }
 
-let balloonY = 500; 
-let velocity = 0;
-let acceleration = 0.1;
-let isGameActive = true;
+
 
 
 function draw(){
 background(230);
-image(balloon, posX, 250, 100, 100);
-image(cloud, posY+100, 0, 250, 150);
-image(cloud, posY+400, 50, 300, 150);
-image(cloud, posY+700, 0, 350, 170);
+translate(scroll, 0);
+image(balloon, balloonX, balloonY, 100, 100);
+image(cloud, posY, posX, 250, 150);
+image(cloud, posY+ posX + 200, 50, 300, 150);
+image(cloud, posY+400, posX + 0, 350, 170);
+image(cloud, posY+600, posX + 70, 350, 170);
+image(cloud, posY+100, posX + 100, 250, 190);
 
 
-
-if(isGameActive){
-    balloonY=balloonY + velocity;
-    velocity=velocity + acceleration;
-
-
-    if (mouseIsPressed){
-        velocity=velocity-0.1;
+if(isLeft){
+    if(balloonX > width * 0.5){
+        balloonX-=10;
     }
-
-
-    if (balloonY > 720 && velocity>2.5) {
-        isGameActive = false;
-        //screen = 3;
-      }
-
-
-    if (balloonY > 720 && velocity<2.5){
-        isGameActive = false;
-        //screen = 4;
-    }
-  
-    if (balloon>=320  && velocity <2) {
-     // winScreen();
-    }
-    else if ( balloon<=320  && velocity>2){
-        //losingScreen();
-
-
-        velocity = 0;
+    else{
+        scroll +=10;
     }
 
 }
 
+if(isRight){
+    if(balloonX < width * 0.8){
+        balloonX+=10;
+    }
+    else{
+        scroll -=10;
+    }
+
 }
 
 
-function mousePressed() {
-    velocity = velocity -0.3;
-  } 
+}
+
+function keyPressed(){
+    if(keyCode == LEFT_ARROW){
+        isLeft=true;
+    }
+    if(keyCode == RIGHT_ARROW){
+        isRight=true;
+    }
+}
 
 
-  let screen = 1;
+function keyReleased(){
+    if(keyCode == LEFT_ARROW){
+        isLeft=false;
+    }
+    if(keyCode == RIGHT_ARROW){
+        isRight=false;
+    }
+}
+
+
+
+
+
+ 
 
 
   function first(){
