@@ -1,4 +1,4 @@
-
+let game_running = false;
 let balloon;
 let cloud;
 let posX=0;
@@ -10,6 +10,12 @@ let isLeft;
 let isRight;
 let isUp;
 let isDown;
+const screen=1;
+
+function startGame(){
+    console.log('start game...');
+}
+
 
 
 function preload(){
@@ -127,59 +133,9 @@ function keyReleased(){
 
 
 
- 
 
 
-  function first(){
-    background(249, 232, 163);
-    if(! game_running){
-        textAlign(CENTER, CENTER);
-        textSize(40);
-        fill(139, 0, 0);
-        text('The adventure of the tomato', 400, 150);
-        text('Click to start', 400, 600);
-        
-        fill(0, 0, 0);
-        textSize(20);
-        text('Welcome to the land of the tomatoes! ', 400, 300);
-    
-        fill(0, 0, 0);
-        textSize(17);
-        text('Your main task is to land the tomato on the plate, BUT be careful, you have to do it as slow as possible!', 400, 350);
-    
-        fill(0, 0, 0);
-        textSize(30);
-        text('Good Luck!', 400, 480);
 
-        if(mouseIsPressed){
-            game_running=true;
-        }
-        
-    }else{
-        draw();
-    }
-}
-
-
-function scenary(){ 
-    
-    if(screen == 1){
-      first();
-    }
-
-    if(screen == 2 ){
-        draw();
-    }
-
-    
-    if(screen == 3 ){
-        losingScreen();
-    }
-
-    
-    if(screen== 4 ){
-        winScreen();
-    }
   
 
-}
+
