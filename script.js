@@ -10,11 +10,7 @@ let isLeft;
 let isRight;
 let isUp;
 let isDown;
-const screen=1;
 
-function startGame(){
-    console.log('start game...');
-}
 
 
 
@@ -34,13 +30,27 @@ function setup(){
 
     isRight= false;
     isLeft= false;
+   
 }
 
 
+var screen = 1;
+
+function draw(){ 
+    
+    if(screen === 1){
+      first();
+    }
+
+    if(screen === 2 ){
+        game();
+    } 
+
+}
 
 
-function draw(){
-background(230);
+function game (){
+background (200, 244, 253);
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, 100, 100);
 image(cloud, posY, posX, 250, 150);
@@ -129,6 +139,30 @@ function keyReleased(){
     }
 }
 
+
+
+function first(){
+    background(110, 56, 118);
+    if(! game_running){
+        textAlign(CENTER, CENTER);
+        textSize(60);
+        fill(236, 198, 45);
+        text('The balloon', 380, 300);
+        text('Click to start', 400, 600);
+        
+        fill(230, 27, 27);
+        textSize(24);
+        text('Welcome to the land of the coins! ', 400, 400);
+        text('You have to collect all the coins if you want to get rich very quicly ', 360, 430);
+    
+
+        if(mouseIsPressed){
+            game_running=true;
+            screen=2;
+        }
+        
+    }
+}
 
 
 
