@@ -10,7 +10,11 @@ let isLeft;
 let isRight;
 let isUp;
 let isDown;
+let x=0; 
+let y= 50; 
+let goLeft= false;
 
+ 
 
 
 
@@ -54,13 +58,38 @@ function draw(){
 
 function game (){
 background (200, 244, 253);
+push();
+fill(255, 255, 200);
+ellipse(x, y, 30, 30);
+ellipse(x, y+100, 30, 30);
+ellipse(x, y+200, 30, 30);
+ellipse(x, y+300, 30, 30);
+
+if(goLeft == false){
+    x=x+3;
+}
+if(goLeft == true){
+    x=x-3;
+}
+if(x>700){
+    goLeft =true ;
+}
+if(x<0){
+    goLeft =false ;
+}
+pop();
+
+
+
+
+
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, 100, 100);
 image(coin, posY+400, posX+400, 20, 20 );
-image(coin, posY+500, posX+400, 20, 20 );
-image(coin, posY+600, posX+400, 20, 20 );
-image(coin, posY+700, posX+400, 20, 20 );
-image(coin, posY+800, posX+400, 20, 20 );
+image(coin, posY+500, posX+100, 20, 20 );
+image(coin, posY+600, posX+200, 20, 20 );
+image(coin, posY+100, posX+250, 20, 20 );
+image(coin, posY+500, posX+290, 20, 20 );
 image(cloud, posY, posX, 250, 150);
 image(cloud, posY+ posX + 200, 50, 300, 150);
 image(cloud, posY+400, posX + 0, 350, 170);
@@ -177,9 +206,4 @@ function first(){
 
 
 
-
-
-
-  
-
-
+        
