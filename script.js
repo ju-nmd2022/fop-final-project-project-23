@@ -16,6 +16,7 @@ let isDown;
 
 function preload(){
     balloon = loadImage("balloon.png");
+    coin = loadImage("coin.png");
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
@@ -30,6 +31,8 @@ function setup(){
 
     isRight= false;
     isLeft= false;
+
+   
    
 }
 
@@ -53,12 +56,20 @@ function game (){
 background (200, 244, 253);
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, 100, 100);
+image(coin, posY+400, posX+400, 20, 20 );
+image(coin, posY+500, posX+400, 20, 20 );
+image(coin, posY+600, posX+400, 20, 20 );
+image(coin, posY+700, posX+400, 20, 20 );
+image(coin, posY+800, posX+400, 20, 20 );
 image(cloud, posY, posX, 250, 150);
 image(cloud, posY+ posX + 200, 50, 300, 150);
 image(cloud, posY+400, posX + 0, 350, 170);
 image(cloud, posY+600, posX + 70, 350, 170);
 image(cloud, posY+100, posX + 100, 250, 190);
 image(grass, posY, posY+600, 850, 100);
+
+
+
 
 
 if(isLeft){
@@ -163,7 +174,6 @@ function first(){
         
     }
 }
-
 
 
 
