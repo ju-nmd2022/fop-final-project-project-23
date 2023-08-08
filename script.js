@@ -1,5 +1,6 @@
 let game_running = false;
 let balloon;
+let coin;
 let cloud;
 let posX=0;
 let posY=0;
@@ -18,9 +19,9 @@ let x=0;
 let y= 50; 
 let goLeft= false;
 let  collectedCoins=0;
-let coin1X=-400;
-let coin1Y= 300;
-let coin1Visible=true;
+let coinX= 300;
+let coinY= 300;
+let coinVisible=true;
 
 
 
@@ -32,10 +33,6 @@ let coin1Visible=true;
 function preload(){
     balloon = loadImage("balloon.png");
     coin = loadImage("coin.png");
-    cloud = loadImage("cloud.png");
-    cloud = loadImage("cloud.png");
-    cloud = loadImage("cloud.png");
-    cloud = loadImage("cloud.png");
     cloud = loadImage("cloud.png");
     grass = loadImage("grass.png");
 }
@@ -71,6 +68,7 @@ function draw(){
 function game (){
 background (200, 244, 253);
 push();
+//Draw the moving circles
 fill(255, 255, 200);
 ellipse(x, y, 30, 30);
 ellipse(x, y+100, 30, 30);
@@ -92,16 +90,23 @@ if(x<0){
 pop();
 
 
-
-
-
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, balloonWidth, balloonHeight);
-image(coin, posY+400, posX+400, coinHeight, coinWidth );
-image(coin, posY+500, posX+100, coinHeight, coinWidth );
-image(coin, posY+600, posX+200, coinHeight, coinWidth );
-image(coin, posY+100, posX+250, coinHeight, coinWidth );
-image(coin, posY+500, posX+290, coinHeight, coinWidth );
+image(coin, coinX, coinY, coinHeight, coinWidth );
+
+if(coinVisible){
+    image(coin, coinX, coinY, coinWidth, coinHeight);
+}
+
+if( coinVisible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth, coinHeight)){
+    coinVisible = false;
+    collectedCoins++;
+
+   
+}
+
+
+
 image(cloud, posY, posX, 250, 150);
 image(cloud, posY+ posX + 200, 50, 300, 150);
 image(cloud, posY+400, posX + 0, 350, 170);
@@ -109,9 +114,7 @@ image(cloud, posY+600, posX + 70, 350, 170);
 image(cloud, posY+100, posX + 100, 250, 190);
 image(grass, posY, posY+600, 850, 100);
 
-if(coin1Visible){
-    image(coin, coin1X,coin1Y, coinHeight, coinWidth);
-}
+
 
 
 
@@ -156,11 +159,6 @@ if(isDown){
 }
 
 
-if( coin1Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin1X, coin1Y, coinHeight, coinWidth)){
-    collectedCoins++;
-    coin1Visible = false;
-}
-
 }
 
 function keyPressed(){
@@ -198,12 +196,12 @@ function keyReleased(){
     }
 }
 
-function checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin1X, coin1Y, coinHeight,coinWidth){
+function checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth,coinHeight){
     if(
-        balloonX< coin1X + coinWidth &&
-        balloonX+balloonWidth>coin1X&&
-        balloonY < coin1Y + coinHeight &&
-        balloonY + balloonHeight>coin1Y
+        balloonX< coinX + coinWidth &&
+        balloonX+balloonWidth>coinX&&
+        balloonY < coinY + coinHeight &&
+        balloonY + balloonHeight>coinY
     ){  
         return true;
     
