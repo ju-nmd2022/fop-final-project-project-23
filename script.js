@@ -6,6 +6,10 @@ let posY=0;
 let scroll;
 let balloonY = 300;
 let balloonX =0;
+let balloonWidth= 100;
+let balloonHeight=100;
+let coinWidth= 20;
+let coinHeight=20;
 let isLeft;
 let isRight;
 let isUp;
@@ -13,6 +17,13 @@ let isDown;
 let x=0; 
 let y= 50; 
 let goLeft= false;
+let  collectedCoins=0;
+let coin1X=-400;
+let coin1Y= 300;
+let coin1Visible=true;
+
+
+
 
  
 
@@ -44,6 +55,7 @@ function setup(){
 var screen = 1;
 
 function draw(){ 
+    game();
     
     if(screen === 1){
       first();
@@ -84,12 +96,12 @@ pop();
 
 
 translate(scroll, 0);
-image(balloon, balloonX, balloonY, 100, 100);
-image(coin, posY+400, posX+400, 20, 20 );
-image(coin, posY+500, posX+100, 20, 20 );
-image(coin, posY+600, posX+200, 20, 20 );
-image(coin, posY+100, posX+250, 20, 20 );
-image(coin, posY+500, posX+290, 20, 20 );
+image(balloon, balloonX, balloonY, balloonWidth, balloonHeight);
+image(coin, posY+400, posX+400, coinHeight, coinWidth );
+image(coin, posY+500, posX+100, coinHeight, coinWidth );
+image(coin, posY+600, posX+200, coinHeight, coinWidth );
+image(coin, posY+100, posX+250, coinHeight, coinWidth );
+image(coin, posY+500, posX+290, coinHeight, coinWidth );
 image(cloud, posY, posX, 250, 150);
 image(cloud, posY+ posX + 200, 50, 300, 150);
 image(cloud, posY+400, posX + 0, 350, 170);
@@ -97,7 +109,9 @@ image(cloud, posY+600, posX + 70, 350, 170);
 image(cloud, posY+100, posX + 100, 250, 190);
 image(grass, posY, posY+600, 850, 100);
 
-
+if(coin1Visible){
+    image(coin, coin1X,coin1Y, coinHeight, coinWidth);
+}
 
 
 
@@ -142,6 +156,11 @@ if(isDown){
 }
 
 
+if( coin1Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin1X, coin1Y, coinHeight, coinWidth)){
+    collectedCoins++;
+    coin1Visible = false;
+}
+
 }
 
 function keyPressed(){
@@ -179,7 +198,23 @@ function keyReleased(){
     }
 }
 
+function checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin1X, coin1Y, coinHeight,coinWidth){
+    if(
+        balloonX< coin1X + coinWidth &&
+        balloonX+balloonWidth>coin1X&&
+        balloonY < coin1Y + coinHeight &&
+        balloonY + balloonHeight>coin1Y
+    ){  
+        return true;
+    
 
+
+    } else {
+        return false;
+        
+    }
+   
+}
 
 function first(){
     background(110, 56, 118);
