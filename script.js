@@ -7,8 +7,8 @@ let posY=0;
 let scroll;
 let balloonY = 300;
 let balloonX =0;
-let balloonWidth= 100;
-let balloonHeight=100;
+let balloonWidth= 70;
+let balloonHeight= 70;
 let coinWidth= 20;
 let coinHeight=20;
 let isLeft;
@@ -21,7 +21,28 @@ let goLeft= false;
 let  collectedCoins=0;
 let coinX= 300;
 let coinY= 300;
+
+let coin1X= 200;
+let coin1Y= 40;
+
+let coin2X= 600;
+let coin2Y= 110;
+
+let coin3X= 610;
+let coin3Y= 250;
+
+let coin4X= 650;
+let coin4Y= 220;
+
+let coin5X= 550;
+let coin5Y= 550;
 let coinVisible=true;
+let coin1Visible=true;
+let coin2Visible=true;
+let coin3Visible=true;
+let coin4Visible=true;
+let coin5Visible=true;
+
 
 
 
@@ -92,7 +113,6 @@ pop();
 
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, balloonWidth, balloonHeight);
-image(coin, coinX, coinY, coinHeight, coinWidth );
 
 if(coinVisible){
     image(coin, coinX, coinY, coinWidth, coinHeight);
@@ -100,9 +120,63 @@ if(coinVisible){
 
 if( coinVisible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth, coinHeight)){
     coinVisible = false;
-    collectedCoins++;
+    collectedCoins++;  
+}
 
-   
+if(coin1Visible){
+    image(coin, coin1X, coin1Y, coinWidth, coinHeight);
+}
+
+if( coin1Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin1X, coin1Y, coinWidth, coinHeight)){
+    coin1Visible = false;
+    collectedCoins++;  
+}
+
+
+if(coin2Visible){
+    image(coin, coin2X, coin2Y, coinWidth, coinHeight);
+}
+
+if( coin2Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin2X, coin2Y, coinWidth, coinHeight)){
+    coin2Visible = false;
+    collectedCoins++;  
+}
+
+
+if(coin3Visible){
+    image(coin, coin3X, coin3Y, coinWidth, coinHeight);
+}
+
+if( coin3Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin3X, coin3Y, coinWidth, coinHeight)){
+    coin3Visible = false;
+    collectedCoins++;  
+}
+
+if(coin4Visible){
+    image(coin, coin4X, coin4Y, coinWidth, coinHeight);
+}
+
+if( coin4Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin4X, coin4Y, coinWidth, coinHeight)){
+    coin4Visible = false;
+    collectedCoins++;  
+}
+
+if(coinVisible){
+    image(coin, coinX, coinY, coinWidth, coinHeight);
+}
+
+if( coinVisible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth, coinHeight)){
+    coinVisible = false;
+    collectedCoins++;  
+}
+
+if(coin5Visible){
+    image(coin, coin5X, coin5Y, coinWidth, coinHeight);
+}
+
+if( coin5Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin5X, coin5Y, coinWidth, coinHeight)){
+    coin5Visible = false;
+    collectedCoins++;  
 }
 
 
