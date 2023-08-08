@@ -1,4 +1,5 @@
 let game_running = false;
+let gameOver= false;
 let balloon;
 let coin;
 let cloud;
@@ -6,17 +7,17 @@ let posX=0;
 let posY=0;
 let scroll;
 let balloonY = 300;
-let balloonX =0;
-let balloonWidth= 70;
-let balloonHeight= 70;
+let balloonX =50;
+let balloonWidth= 50;
+let balloonHeight= 20;
 let coinWidth= 20;
 let coinHeight=20;
 let isLeft;
 let isRight;
 let isUp;
 let isDown;
-let x=0; 
-let y= 50; 
+let x=100; 
+let y= 150; 
 let goLeft= false;
 let  collectedCoins=0;
 let coinX= 300;
@@ -73,15 +74,17 @@ function setup(){
 var screen = 1;
 
 function draw(){ 
-    game();
-    
-    if(screen === 1){
-      first();
-    }
 
-    if(screen === 2 ){
+
+    if (screen === 1){
+        first();
+    } else if(screen===2){
         game();
-    } 
+    }else if(screen===3){
+        gameOverScreen();
+    }
+    
+    
 
 }
 
@@ -89,6 +92,7 @@ function draw(){
 function game (){
 background (200, 244, 253);
 push();
+
 //Draw the moving circles
 fill(255, 255, 200);
 ellipse(x, y, 30, 30);
@@ -108,7 +112,21 @@ if(x>700){
 if(x<0){
     goLeft =false ;
 }
+
+
+//Draw the moving circles
+fill(255, 255, 200);
+ellipse(x, y, 30, 30);
+ellipse(x, y+100, 30, 30);
+ellipse(x, y+200, 30, 30);
+ellipse(x, y+300, 30, 30);
+
 pop();
+
+if(checkCollisionWithMovingCircles(balloonX, balloonY, balloonWidth, balloonHeight)){
+    gameOver= true;
+    screen=3;
+}
 
 
 translate(scroll, 0);
@@ -230,10 +248,7 @@ if(isDown){
         scroll -=5;
     }
 
-}
-
-
-}
+}}
 
 function keyPressed(){
     if(keyCode == LEFT_ARROW){
@@ -287,6 +302,37 @@ function checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, 
     }
    
 }
+
+
+function checkCollisionWithMovingCircles(x, y, width, height){
+    const circlePositions = [
+        { x: x, y: y },
+        { x: x, y: y + 100 },
+        { x: x, y: y + 200 },
+        { x: x, y: y + 300 }
+      ];
+    
+      for (let i = 0; i < circlePositions.length; i++) {
+        const circle = circlePositions[i];
+        if (checkCollision(x, y, width, height, circle.x, circle.y, 30, 30)) {
+          console.log(`Collision with circle ${i+1}`);
+          return true;
+        }
+      }
+      return false;
+}
+
+    
+
+function gameOverScreen() {
+    background(0); 
+    textAlign(CENTER, CENTER);
+    textSize(60);
+    fill(255);
+    text('Game Over', width / 2, height / 2);
+   
+  }
+
 
 function first(){
     background(110, 56, 118);
