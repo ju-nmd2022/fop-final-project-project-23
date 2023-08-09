@@ -125,9 +125,6 @@ function draw(){
     }
 
 let circlePositions = [
-
-
-
     { x: x, y: y },
     { x: x, y: y + 100 },
     { x: x, y: y + 250 },
@@ -380,10 +377,17 @@ function keyPressed(){
         if(gameIsOver){
             gameIsOver =false;
             collectedCoins=0;
+
         }
         
         screen=1;
         game_running= false;
+        gameIsOver = false;
+
+        balloonX = 50;
+        balloonY = 300;
+        collectedCoins=0;
+
     }
 
 
