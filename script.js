@@ -45,7 +45,7 @@ let coin4Visible=true;
 let coin5Visible=true;
 
 let totalCoins= 6;
-
+let gameIsOver= false;
 
 
  
@@ -99,6 +99,7 @@ let circlePositions = [
 
 
 function game (){
+
 background (200, 244, 253);
 push();
 
@@ -262,6 +263,19 @@ if(collectedCoins === totalCoins){
 }
 
 function keyPressed(){
+
+    if (keyCode === ENTER){
+        if(gameIsOver){
+            gameIsOver =false;
+            collectedCoins=0;
+        }
+        
+        screen=1;
+        game_running= false;
+    }
+
+
+
     if(keyCode == LEFT_ARROW){
         isLeft=true;
     }
@@ -334,12 +348,14 @@ function winScreen(){
   textAlign(CENTER, CENTER);
   textSize(60);
   fill(255);
+
   text('Congratulations!', width / 2, height / 2 - 50);
   textSize(30);
   text('You collected all the coins!', width / 2, height / 2 + 50);
 }
 
 function gameOverScreen() {
+    gameIsOver=true;
     console.log('Game Over..');
     background(110, 56, 118); 
     textAlign(CENTER, CENTER);
@@ -353,7 +369,7 @@ function gameOverScreen() {
   
     textSize(24);
     fill(255, 100);
-    text('Press SPACE to play again', width / 2, (2 * height) / 3);
+    text('Press ENTER to play again', width / 2, (2 * height) / 3);
    
   } 
 
