@@ -456,7 +456,6 @@ function checkCollisionWithMovingCircles(x, y, width, height){
     
 function winScreen(){
     console.log("YOU WON");
-
     background(50, 150, 50);
   textAlign(CENTER, CENTER);
   textSize(60);
@@ -465,6 +464,8 @@ function winScreen(){
   text('Congratulations!', width / 2, height / 2 - 50);
   textSize(30);
   text('You collected all the coins!', width / 2, height / 2 + 50);
+
+ 
 }
 
 function gameOverScreen() {
@@ -500,6 +501,7 @@ function first(){
         textSize(24);
         text('Welcome to the land of the coins! ', 400, 400);
         text('You have to collect all the coins if you want to get rich very quicly ', 360, 430);
+        text('Be careful of the movin circles, they will kill you!!! ', 360, 530);
     
 
         if(mouseIsPressed){
