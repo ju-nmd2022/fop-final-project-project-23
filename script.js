@@ -61,7 +61,7 @@ function preload(){
 
 function setup(){
     createCanvas(700, 700);
-    scroll = 0;
+   
 
     isRight= false;
     isLeft= false;
@@ -99,12 +99,6 @@ function game (){
 background (200, 244, 253);
 push();
 
-//Draw the moving circles
-fill(255, 255, 200);
-ellipse(x, y, 20, 20);
-ellipse(x, y+100, 20, 20);
-ellipse(x, y+200, 20, 20);
-ellipse(x, y+300, 20, 20);
 
 if(goLeft == false){
     x=x+3;
@@ -119,12 +113,13 @@ if(x<0){
     goLeft =false ;
 }
 
+
 //Draw the moving circles
-fill(255, 200, 0, 30);
-ellipse(x, y, 30, 30);
-ellipse(x, y+100, 30, 30);
-ellipse(x, y+250, 30, 30);
-ellipse(x, y+400, 30, 30);
+fill(255, 255, 200);
+ellipse(x, y, 20, 20);
+ellipse(x, y+100, 20, 20);
+ellipse(x, y+250, 20, 20);
+ellipse(x, y+400, 20, 20);
 
 pop();
 noStroke();
@@ -138,7 +133,7 @@ for(let i=0; i<circlePositions.length; i++){
     }
 }
 
-if(checkCollisionWithMovingCircles(balloonX, balloonY, balloonWidth, balloonHeight)){
+if(checkCollisionWithMovingCircles(balloonX, balloonY, balloonWidth, balloonHeight, circle.x, circle.y, 30, 30)){
     console.log('Collision with moving circles.');
     gameOver= true;
     screen=3;
@@ -350,7 +345,7 @@ function gameOverScreen() {
     fill(255, 100);
     text('Press SPACE to play again', width / 2, (2 * height) / 3);
    
-  }
+  } 
 
 
 function first(){
