@@ -29,7 +29,7 @@ let coin1Y= 40;
 let coin2X= 600;
 let coin2Y= 110;
 
-let coin3X= 610;
+let coin3X= 410;
 let coin3Y= 250;
 
 let coin4X= 650;
@@ -37,14 +37,51 @@ let coin4Y= 220;
 
 let coin5X= 550;
 let coin5Y= 550;
+
+let coin6X= 80;
+let coin6Y= 80;
+
+let coin7X= 100;
+let coin7Y= 350;
+
+let coin8X= 300;
+let coin8Y= 550;
+
+let coin9X= 550;
+let coin9Y= 400;
+
+let coin10X= 150;
+let coin10Y= 200;
+
+let coin11X= 320;
+let coin11Y= 420;
+
+let coin12X= 100;
+let coin12Y= 500;
+
+let coin13X= 650;
+let coin13Y= 400;
+
+
+
+
 let coinVisible=true;
 let coin1Visible=true;
 let coin2Visible=true;
 let coin3Visible=true;
 let coin4Visible=true;
 let coin5Visible=true;
+let coin6Visible=true;
+let coin7Visible=true;
+let coin8Visible=true;
+let coin9Visible=true;
+let coin10Visible= true ;
+let coin11Visible=true;
+let coin12Visible=true;
+let coin13Visible=true;
 
-let totalCoins= 6;
+
+let totalCoins= 14;
 let gameIsOver= false;
 
 
@@ -120,10 +157,10 @@ if(x<0){
 
 //Draw the moving circles
 fill(255, 255, 200);
-ellipse(x, y, 20, 20);
-ellipse(x, y+100, 20, 20);
-ellipse(x, y+250, 20, 20);
-ellipse(x, y+400, 20, 20);
+ellipse(x, y, 35, 35);
+ellipse(x, y+100, 35, 35);
+ellipse(x, y+250, 35, 35);
+ellipse(x, y+400, 35, 35);
 pop();
 
 noStroke();
@@ -201,6 +238,81 @@ if(coin5Visible){
 
 if( coin5Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin5X, coin5Y, coinWidth, coinHeight)){
     coin5Visible = false;
+    collectedCoins++;  
+}
+
+if(coin6Visible){
+    image(coin, coin6X, coin6Y, coinWidth, coinHeight);
+}
+
+if( coin6Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin6X, coin6Y, coinWidth, coinHeight)){
+    coin6Visible = false;
+    collectedCoins++;  
+}
+
+
+if(coin7Visible){
+    image(coin, coin7X, coin7Y, coinWidth, coinHeight);
+}
+
+if( coin7Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin7X, coin7Y, coinWidth, coinHeight)){
+    coin7Visible = false;
+    collectedCoins++;  
+}
+
+
+if(coin8Visible){
+    image(coin, coin8X, coin8Y, coinWidth, coinHeight);
+}
+
+if( coin8Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin8X, coin8Y, coinWidth, coinHeight)){
+    coin8Visible = false;
+    collectedCoins++;  
+}
+
+
+if(coin9Visible){
+    image(coin, coin9X, coin9Y, coinWidth, coinHeight);
+}
+
+if( coin9Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin9X, coin9Y, coinWidth, coinHeight)){
+    coin9Visible = false;
+    collectedCoins++;  
+}
+
+if(coin10Visible){
+    image(coin, coin10X, coin10Y, coinWidth, coinHeight);
+}
+
+if( coin10Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin10X, coin10Y, coinWidth, coinHeight)){
+    coin10Visible = false;
+    collectedCoins++;  
+}
+
+if(coin11Visible){
+    image(coin, coin11X, coin11Y, coinWidth, coinHeight);
+}
+
+if( coin11Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin11X, coin11Y, coinWidth, coinHeight)){
+    coin11Visible = false;
+    collectedCoins++;  
+}
+
+if(coin12Visible){
+    image(coin, coin12X, coin12Y, coinWidth, coinHeight);
+}
+
+if( coin12Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin12X, coin12Y, coinWidth, coinHeight)){
+    coin12Visible = false;
+    collectedCoins++;  
+}
+
+if(coin13Visible){
+    image(coin, coin13X, coin13Y, coinWidth, coinHeight);
+}
+
+if( coin13Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coin13X, coin13Y, coinWidth, coinHeight)){
+    coin13Visible = false;
     collectedCoins++;  
 }
 
@@ -344,6 +456,7 @@ function checkCollisionWithMovingCircles(x, y, width, height){
     
 function winScreen(){
     console.log("YOU WON");
+
     background(50, 150, 50);
   textAlign(CENTER, CENTER);
   textSize(60);
