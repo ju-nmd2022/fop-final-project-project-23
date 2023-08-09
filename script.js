@@ -375,8 +375,10 @@ function keyPressed(){
 
     if (keyCode === ENTER){
         if(gameIsOver){
-            gameIsOver =false;
             collectedCoins=0;
+
+            gameIsOver =false;
+           
 
         }
         
@@ -386,7 +388,8 @@ function keyPressed(){
 
         balloonX = 50;
         balloonY = 300;
-        collectedCoins=0;
+        
+        
 
     }
 
