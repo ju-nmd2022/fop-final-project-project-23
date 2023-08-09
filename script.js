@@ -44,7 +44,7 @@ let coin3Visible=true;
 let coin4Visible=true;
 let coin5Visible=true;
 
-
+let totalCoins= 6;
 
 
 
@@ -75,19 +75,22 @@ var screen = 1;
 
 function draw(){ 
 
-
     if (screen === 1){
         first();
     } else if(screen===2){
         game();
     }else if(screen===3){
+        gameOver = true;
         gameOverScreen();
+        } else if (screen === 4){
+            winScreen();
+        }
     }
-    
-    
 
-}
 let circlePositions = [
+
+
+
     { x: x, y: y },
     { x: x, y: y + 100 },
     { x: x, y: y + 250 },
@@ -120,8 +123,8 @@ ellipse(x, y, 20, 20);
 ellipse(x, y+100, 20, 20);
 ellipse(x, y+250, 20, 20);
 ellipse(x, y+400, 20, 20);
-
 pop();
+
 noStroke();
 for(let i=0; i<circlePositions.length; i++){
     const circle = circlePositions[i];
@@ -190,14 +193,6 @@ if( coin4Visible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeig
     collectedCoins++;  
 }
 
-if(coinVisible){
-    image(coin, coinX, coinY, coinWidth, coinHeight);
-}
-
-if( coinVisible && checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth, coinHeight)){
-    coinVisible = false;
-    collectedCoins++;  
-}
 
 if(coin5Visible){
     image(coin, coin5X, coin5Y, coinWidth, coinHeight);
@@ -259,7 +254,12 @@ if(isDown){
         scroll -=5;
     }
 
-}}
+}
+if(collectedCoins === totalCoins){
+    screen = 4;
+}
+
+}
 
 function keyPressed(){
     if(keyCode == LEFT_ARROW){
@@ -328,6 +328,16 @@ function checkCollisionWithMovingCircles(x, y, width, height){
 }
 
     
+function winScreen(){
+    console.log("YOU WON");
+    background(50, 150, 50);
+  textAlign(CENTER, CENTER);
+  textSize(60);
+  fill(255);
+  text('Congratulations!', width / 2, height / 2 - 50);
+  textSize(30);
+  text('You collected all the coins!', width / 2, height / 2 + 50);
+}
 
 function gameOverScreen() {
     console.log('Game Over..');
