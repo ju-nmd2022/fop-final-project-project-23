@@ -59,7 +59,7 @@ let coin11Y= 420;
 let coin12X= 100;
 let coin12Y= 500;
 
-let coin13X= 650;
+let coin13X= 600;
 let coin13Y= 400;
 
 
@@ -94,6 +94,7 @@ function preload(){
     coin = loadImage("coin.png");
     cloud = loadImage("cloud.png");
     grass = loadImage("grass.png");
+
 }
 
 function setup(){
@@ -508,7 +509,7 @@ function first(){
         textSize(24);
         text('Welcome to the land of the coins! ', 400, 400);
         text('You have to collect all the coins if you want to get rich very quicly ', 360, 430);
-        text('Be careful of the movin circles, they will kill you!!! ', 360, 530);
+        text('Be careful of the moving circles, they will kill you!!! ', 360, 530);
     
 
         if(mouseIsPressed){
