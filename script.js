@@ -19,7 +19,8 @@ let isDown;
 let x=100; 
 let y= 150; 
 let goLeft= false;
-let  collectedCoins=0;
+let collectedCoins=0;
+
 let coinX= 300;
 let coinY= 300;
 
@@ -83,11 +84,12 @@ let coin13Visible=true;
 
 let totalCoins= 14;
 let gameIsOver= false;
+var screen =1;
 
 
  
 
-
+// The next function is taken from the video: https://youtu.be/Pm7o-aPuEYk
 
 function preload(){
     balloon = loadImage("balloon.png");
@@ -99,17 +101,12 @@ function preload(){
 
 function setup(){
     createCanvas(700, 700);
-   
-
     isRight= false;
     isLeft= false;
-
-   
-   
 }
 
 
-var screen = 1;
+
 
 function draw(){ 
 
@@ -138,7 +135,6 @@ function game (){
 background (200, 244, 253);
 push();
 
-
 if(goLeft == false){
     x=x+3;
 }
@@ -162,6 +158,8 @@ ellipse(x, y+400, 35, 35);
 pop();
 
 noStroke();
+
+// The next line were made with the help of P5js.org
 for(let i=0; i<circlePositions.length; i++){
     const circle = circlePositions[i];
     if (goLeft ==false){
@@ -181,6 +179,8 @@ if(checkCollisionWithMovingCircles(balloonX, balloonY, balloonWidth, balloonHeig
 
 translate(scroll, 0);
 image(balloon, balloonX, balloonY, balloonWidth, balloonHeight);
+
+// The next 8 lines are ispired from the video: https://www.youtube.com/live/yt3UMR85TVk?feature=share
 
 if(coinVisible){
     image(coin, coinX, coinY, coinWidth, coinHeight);
@@ -325,8 +325,6 @@ image(grass, posY, posY+600, 850, 100);
 
 
 
-
-
 if(isLeft){
     if(balloonX < width ){
         balloonX-=5;
@@ -373,7 +371,7 @@ if(collectedCoins === totalCoins){
 }
 
 function keyPressed(){
-
+   
     if (keyCode === ENTER){
         if(gameIsOver){
             collectedCoins=0;
@@ -429,6 +427,8 @@ function keyReleased(){
         isDown = false;
     }
 }
+
+// The next lines are ispired from the video: https://youtu.be/_MyPLZSGS3s
 
 function checkCollision(balloonX, balloonY, balloonWidth, balloonHeight, coinX, coinY, coinWidth,coinHeight){
     if(
