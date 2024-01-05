@@ -21,6 +21,9 @@ let y= 150;
 let goLeft= false;
 let collectedCoins=0;
 
+
+
+
 let coinX= 300;
 let coinY= 300;
 
@@ -84,7 +87,7 @@ let coin13Visible=true;
 
 let totalCoins= 14;
 let gameIsOver= false;
-var screen =1;
+let screen =1;
 
 
  
